@@ -17,7 +17,7 @@ int main()
     cout << "\n2 - Sum";
     cout << "\n3 - Sum of squares ";
     cout << "\n4 - Compare factorial and sum";
-    cout << "\n0 - Zero";
+    cout << "\n0 - Exit";
     cout << "\nOption: ";
     cin >> option;
 
@@ -25,6 +25,9 @@ int main()
         cout << "Invalid interger! Select only from 0-4. " << endl;
         cout << "\nOption: ";
         cin >> option;
+    }
+    if (option == 0){
+        return 0;
     }
     
     cout << "\nEnter an integer from 0-12: ";
