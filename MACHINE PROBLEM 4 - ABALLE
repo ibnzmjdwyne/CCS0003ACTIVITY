@@ -1,0 +1,85 @@
+#include <iostream>
+using namespace std;
+
+int findGCD(int a,int b)
+{
+    if(b==0)
+    {
+        return a;
+    }
+
+    return findGCD(b,a%b);
+}
+
+long long findLCM(int a,int b)
+{
+    int gcd=findGCD(a,b);
+
+    return (long long)(a/gcd)*b;
+}
+
+int main()
+{
+    int choice;
+    int a,b;
+
+    while(true)
+    {
+        cout<<"\nGCD and LCM Calculator\n";
+        cout<<"1 - Find GCD\n";
+        cout<<"2 - Find LCM\n";
+        cout<<"3 - Check coprime\n";
+        cout<<"4 - Show GCD and LCM\n";
+        cout<<"0 - Exit\n";
+        cout<<"Enter your choice: ";
+        cin>>choice;
+
+        if(choice==0)
+        {
+            cout<<"Program ended.";
+            break;
+        }
+
+        if(choice<1||choice>4)
+        {
+            cout<<"Invalid choice.\n";
+            continue;
+        }
+
+        cout<<"Enter two integers from 1 to 10000: ";
+        cin>>a>>b;
+
+        if(a<1||a>10000||b<1||b>10000)
+        {
+            cout<<"Invalid pair; retry.\n";
+            continue;
+        }
+
+        if(choice==1)
+        {
+            cout<<"GCD = "<<findGCD(a,b);
+        }
+        else if(choice==2)
+        {
+            cout<<"LCM = "<<findLCM(a,b);
+        }
+        else if(choice==3)
+        {
+            if(findGCD(a,b)==1)
+            {
+                cout<<"Coprime = Yes";
+            }
+            else
+            {
+                cout<<"Coprime = No";
+            }
+        }
+        else if(choice==4)
+        {
+            cout<<"GCD = "<<findGCD(a,b)<<endl;
+            cout<<"LCM = "<<findLCM(a,b);
+        }
+    }
+
+    return 0;
+}
