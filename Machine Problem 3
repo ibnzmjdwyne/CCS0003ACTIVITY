@@ -1,0 +1,104 @@
+#include <iostream>
+using namespace std;
+
+long long factorial(int n);
+long long sumNatural(int n);
+long long sumSquares(int n);
+int compareResults(int n);
+
+int main() 
+{   
+    int option, n;
+    double sums = 0,sumn = 0;
+
+    do{   
+    cout << "\n===== FACTORIAL AND SERIES CALCULATOR =====";
+    cout << "\n1 - Factorial";
+    cout << "\n2 - Sum";
+    cout << "\n3 - Sum of squares ";
+    cout << "\n4 - Compare factorial and sum";
+    cout << "\n0 - Zero";
+    cout << "\nOption: ";
+    cin >> option;
+
+    if (option <0 || option >12){
+        cout << "Invalid interger! Select only from 0-4. " << endl;
+        cout << "\nOption: ";
+        cin >> option;
+    }
+    
+    cout << "\nEnter an integer from 0-12: ";
+    cin >> n;
+
+    if (n<0 || n>12){
+        cout << "Invalid integer! " << endl;
+        cout << "Enter an integer from 0-12 only: ";
+        cin >> n;
+    }
+
+    switch(option){
+        case 1:{}
+            cout << "Factorial: " << factorial(n) << "\n";
+            break;
+        case 2:
+            sumn = sumNatural(n);
+            cout << "Sum of natural numbers: " << sumn << "\n";
+            break;
+        case 3:
+            sums = sumSquares(n);
+            cout << "Sum of squared numbers: " << sums << "\n";
+            break;
+        case 4:{
+            int result = compareResults(n);
+            if (result == 1)
+                cout << "Factorial greater\n";
+            else if (result == -1)
+                cout << "Sum greater\n";
+            else
+                 cout << "Equal\n";
+            break;
+        }
+    }
+    }while(option != 0);  
+    return 0;
+
+}
+
+
+long long factorial(int n)  {
+    if (n == 0)
+        return 1;
+    else
+        return n*factorial(n-1);
+}
+
+long long sumNatural(int n){
+    if (n==0)
+        return 0;
+    else 
+        return n+sumNatural(n-1);
+}
+
+long long sumSquares(int n){
+     if (n==0){
+        return 0;
+    }
+    return (n*n)+sumSquares(n-1);   
+}
+
+int compareResults(int n) {
+    long long fact = factorial(n);
+    long long sum = sumNatural(n);
+
+    if (fact > sum)
+        return 1;
+
+    if (fact < sum)
+        return -1;
+
+    return 0;
+}
+
+
+
+
