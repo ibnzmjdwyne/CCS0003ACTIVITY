@@ -28,7 +28,7 @@ int main(){
                     cout << "\nEnter a value from 1 to 20: ";
                     cin >> n;
 
-                    if(n > 20 || n < 0){
+                    if(n > 20 || n < 1){
                          cout << "Invalid number; retry\n";
                     }
                 }while(!(n > 0 && n < 21));
@@ -37,7 +37,7 @@ int main(){
                 break;
             case 2:
                 do{
-                    cout << "\nEnter a value from 1 to 20: ";
+                    cout << "\nEnter a value from 0 to 20: ";
                     cin >> n;
 
                     if(n > 20 || n < 0){
@@ -53,7 +53,7 @@ int main(){
                     cout << "\nEnter a value from 1 to 20: ";
                     cin >> n;
 
-                    if(n > 20 || n < 0){
+                    if(n > 20 || n < 1){
                         cout << "Invalid number; retry\n";
                     }
                 }while(!(n > 0 && n < 21));
@@ -65,7 +65,7 @@ int main(){
                     cout << "\nEnter a value from 1 to 20: ";
                     cin >> n;
 
-                    if(n > 20 || n < 0){
+                    if(n > 20 || n < 1){
                         cout << "Invalid number; retry\n";
                     }
                 }while(!(n > 0 && n < 21));
@@ -80,7 +80,7 @@ int main(){
                 cout << "Invalid number; retry\n";
                 break;
         }
-    }while(!(choice > -1 && choice < 4));
+    }while(choice != 0);
     
     return 0;
 }
